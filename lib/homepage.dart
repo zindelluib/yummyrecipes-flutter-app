@@ -9,22 +9,56 @@ class HomePage extends StatelessWidget{
 	Widget build(BuildContext context){
 		return Scaffold(
 	        appBar:AppBar(
-	          title: Text('Yummy Recipes')
+	          title: Text('Yummy Recipes'),
+	          backgroundColor: Color.fromRGBO(56,142,60,1)
 	        ),
-	        body: Container(
-	        	child: Column(
-	        		crossAxisAlignment: CrossAxisAlignment.start,
-	        		children: [
-	        			Text('Recipe of the Day'),
-	        			Image.asset('assets/images/friedchicken.jpg'),
-	        			RecipeDescription(),
-	        			Text('Recipes'),
-	        			RecipeMenu(),
-	        			Text('Account'),
-	        			AccountMenu()
-	        		]
-	        	)//Column
-	        )//Container
+		        body:SingleChildScrollView(
+		        child:Container(
+		        	padding: EdgeInsets.all(15), 
+		        	child: Column(
+		        		crossAxisAlignment: CrossAxisAlignment.start,
+		        		children: [
+		        			Container(
+		        				padding: EdgeInsets.all(9),
+		        				width: double.infinity,
+		        				child: Text('Recipe of the Day',
+		        					style:TextStyle(
+		        						color:Colors.white,
+		        						fontSize: 20,
+		        						fontWeight: FontWeight.bold
+		        					)
+		        				),
+		        				color: Color.fromRGBO(255,87,34,1)
+		        			),
+		        			Padding(
+		        				child: Image.asset('assets/images/friedchicken.jpg'),
+		        				padding: EdgeInsets.only(bottom :9)
+		        			),
+		        			RecipeDescription(),
+		        			Padding(
+		        				child: Text('Recipes',
+			        				style: TextStyle(
+			        					fontWeight: FontWeight.bold,
+			        					fontSize: 18	
+			        				)
+			        			),
+			        			padding: EdgeInsets.only(left:12,bottom:7)
+		        			),
+		        			RecipeMenu(),
+		        			Padding(
+		        				child: Text('Account',
+			        				style: TextStyle(
+			        					fontWeight: FontWeight.bold,
+			        					fontSize: 18	
+			        				)
+			        			),
+			        			padding: EdgeInsets.only(left:12,bottom:7,top:7)
+		        			),
+		        			AccountMenu()
+		        		]
+		        	)//Column
+		        )//Container
+		    )
         );
 	}
 

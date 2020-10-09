@@ -4,24 +4,32 @@ class AccountMenu extends StatelessWidget{
 
 	Widget build(BuildContext context){
 		return Row(
+			mainAxisAlignment: MainAxisAlignment.center,
 			children: [
-				Column(
-					children:[
-						IconButton(
-							icon: Icon(Icons.settings),
-							onPressed: () {}
-						),//IconButton
-						Text('Settings')
-					]
+				Padding(
+					child: Column(
+						children:[
+							IconButton(
+								icon: Icon(Icons.settings),
+								onPressed: () {}
+							),//IconButton
+							Text('Settings')
+						]
+					),
+					padding: EdgeInsets.only(right:5)
+
 				),//Column
-				Column(
-					children:[
-						IconButton(
-							icon: Icon(Icons.close),
-							onPressed: () {}
-						),//IconButton
-						Text('Logout')
-					]
+				Padding(
+					child: Column(
+						children:[
+							IconButton(
+								icon: Icon(Icons.close),
+								onPressed: () {}
+							),//IconButton
+							Text('Logout')
+						]
+					),
+					padding: EdgeInsets.only(left:5)
 				)
 			]
 		);//Row

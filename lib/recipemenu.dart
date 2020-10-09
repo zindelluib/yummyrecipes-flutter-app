@@ -5,33 +5,42 @@ class RecipeMenu extends StatelessWidget{
 	@override
 	Widget build(BuildContext context){
 		return Row(
+			mainAxisAlignment: MainAxisAlignment.center,
 			children: [
-				Column(
-					children:[
-						IconButton(
-							icon: Icon(Icons.favorite),
-							onPressed: () {}
-						),//IconButton
-						Text('Favorites')
-					]
+				Padding(
+					child: Column(
+						children:[
+							IconButton(
+								icon: Icon(Icons.favorite,color: Colors.red),
+								onPressed: () {}
+							),//IconButton
+							Text('Favorites')
+						]
+					),
+					padding: EdgeInsets.only(right:10)
+
 				),//Column
 				Column(
 					children:[
 						IconButton(
-							icon: Icon(Icons.create),
+							icon: Icon(Icons.create,color:Colors.green),
 							onPressed: () {}
 						),//IconButton
 						Text('My Recipes')
 					]
 				),//Column
-				Column(
-					children:[
-						IconButton(
-							icon: Icon(Icons.search),
-							onPressed: () {}
-						),//IconButton
-						Text('View All')
-					]
+				Padding(
+					child: Column(
+						children:[
+							IconButton(
+								icon: Icon(Icons.search,color:Colors.orange),
+								onPressed: () {}
+							),//IconButton
+							Text('View All')
+						]
+					),
+					padding: EdgeInsets.only(left:10)
+
 				)
 
 			]
