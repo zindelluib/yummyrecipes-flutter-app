@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'homepage.dart';
-
+//import 'homepage.dart';
+import 'registrationpage.dart';
 void main() {
   runApp(YummyRecipesApp());
 }
@@ -12,7 +12,8 @@ class YummyRecipesApp extends StatelessWidget{
   Widget build(BuildContext context){
     return MaterialApp(
       title: 'Yummy Recipes',
-      home: HomePage()
+      //home: HomePage()
+      home: RegistrationPage()
     );//MaterialApp
   }
 
