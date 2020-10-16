@@ -21,7 +21,8 @@ class RegistrationPage extends StatelessWidget{
 					),//Container
 					SingleChildScrollView(
 						child: Container(
-							child: RegistrationForm()
+							child: RegistrationForm(),
+							padding: EdgeInsets.all(12)
 						)//Container
 					)//SingleChildScrollView
 

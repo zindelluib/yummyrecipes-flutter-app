@@ -12,14 +12,17 @@ InputDecoration txtDecoration(var str){
 	return  InputDecoration(
 		fillColor: Colors.white,
 		filled: true,
-		hintText: str
+		hintText: str,
+		border: OutlineInputBorder(borderRadius:BorderRadius.circular(20)),
+		contentPadding: EdgeInsets.fromLTRB(15,15,10,8),
+		errorStyle: TextStyle(color: Colors.yellow,fontWeight:FontWeight.bold)
 	);
 }
 
 
 
 class RegistrationFormState extends State<RegistrationForm>{
-
+	final _bottomSpace  = 12.0;
 	final _formKey  = GlobalKey<FormState>();
 	bool _isAccepted  = false;
 	final emailExp = new RegExp(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)");
@@ -31,12 +34,25 @@ class RegistrationFormState extends State<RegistrationForm>{
 	    super.dispose();
 	  }
 
+	_register(){
+
+		if (_formKey.currentState.validate()) {
+						      
+			Scaffold
+				.of(context)
+				.showSnackBar(SnackBar(content: Text('Saving...')));
+		}
+
+	}
 	@override
 	Widget build(BuildContext context){
 		return Form(
 			key: _formKey,
 			child: Column(
 				children: [
+					SizedBox(
+						height: 70
+					),
 					TextFormField(
 						decoration:txtDecoration('First Name'),
 						validator: (value){
@@ -45,6 +61,9 @@ class RegistrationFormState extends State<RegistrationForm>{
 						    }
 						    return null;
 						}
+					),
+					SizedBox(
+						height: _bottomSpace
 					),
 					TextFormField(
 						decoration: txtDecoration('Last Name'),
@@ -55,6 +74,9 @@ class RegistrationFormState extends State<RegistrationForm>{
 						    return null;
 						}
 					),
+					SizedBox(
+						height: _bottomSpace
+					),
 					TextFormField(
 						decoration : txtDecoration('Username'),
 						validator: (value){
@@ -63,6 +85,9 @@ class RegistrationFormState extends State<RegistrationForm>{
 						    }
 						    return null;
 						}
+					),
+					SizedBox(
+						height: _bottomSpace
 					),
 					TextFormField(
 						decoration : txtDecoration('Email'),
@@ -74,6 +99,9 @@ class RegistrationFormState extends State<RegistrationForm>{
 
 						    return null;
 						}
+					),
+					SizedBox(
+						height: _bottomSpace
 					),
 					TextFormField(
 						obscureText: true,
@@ -89,6 +117,9 @@ class RegistrationFormState extends State<RegistrationForm>{
 						    return null;
 						}
 					),
+					SizedBox(
+						height: _bottomSpace
+					),
 					TextFormField(
 						obscureText: true,
 						decoration : txtDecoration('Confirm Password'),
@@ -102,6 +133,9 @@ class RegistrationFormState extends State<RegistrationForm>{
 						    return null;
 						}
 					),
+					SizedBox(
+						height: 15
+					),
 					Row(
 						children: [
 							Checkbox(
@@ -113,21 +147,15 @@ class RegistrationFormState extends State<RegistrationForm>{
 								}
 
 							),
-							Text('By clicking Register, you agree to our terms\n and data policy')
+							Text('By clicking Register, you agree to our terms\n and data policy',
+								style : TextStyle(color: Colors.white)
+							)
 
 						]
 					),
 					ElevatedButton(
 						child: Text('Register'),
-						onPressed:(){
-							if (_formKey.currentState.validate()) {
-						      
-						      Scaffold
-						          .of(context)
-						          .showSnackBar(SnackBar(content: Text('Saving...')));
-						    }
-
-						}
+						onPressed: _isAccepted?_register:null
 					)
 
 				]
