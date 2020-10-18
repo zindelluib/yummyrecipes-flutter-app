@@ -39,7 +39,7 @@ class LoginFormState extends State<LoginForm>{
 						      
 			Scaffold
 				.of(context)
-				.showSnackBar(SnackBar(content: Text('Saving...')));
+				.showSnackBar(SnackBar(content: Text('Logging in...')));
 		}
 
 	}
