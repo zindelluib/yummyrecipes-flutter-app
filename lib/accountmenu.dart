@@ -24,7 +24,9 @@ class AccountMenu extends StatelessWidget{
 						children:[
 							IconButton(
 								icon: Icon(Icons.close),
-								onPressed: () {}
+								onPressed: () {
+									Navigator.pushNamedAndRemoveUntil(context, '/login',(Route<dynamic> route) => false);
+								}
 							),//IconButton
 							Text('Logout')
 						]

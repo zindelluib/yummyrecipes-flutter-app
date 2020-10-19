@@ -36,10 +36,8 @@ class LoginFormState extends State<LoginForm>{
 	_login(){
 
 		if (_formKey.currentState.validate()) {
-						      
-			Scaffold
-				.of(context)
-				.showSnackBar(SnackBar(content: Text('Logging in...')));
+			//No auth			      
+			Navigator.pushNamedAndRemoveUntil(context, '/',(Route<dynamic> route) => false);
 		}
 
 	}
@@ -94,7 +92,9 @@ class LoginFormState extends State<LoginForm>{
 					),
 					ElevatedButton(
 						child: Text('Register Now'),
-						onPressed: _login
+						onPressed: (){
+							Navigator.pushNamed(context, '/registration');
+						}
 					),
 
 				]
