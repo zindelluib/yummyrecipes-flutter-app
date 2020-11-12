@@ -12,7 +12,9 @@ class RecipeMenu extends StatelessWidget{
 						children:[
 							IconButton(
 								icon: Icon(Icons.favorite,color: Colors.red),
-								onPressed: () {}
+								onPressed: () {
+									Navigator.pushNamed(context,'/favorites');
+								}
 							),//IconButton
 							Text('Favorites')
 						]
