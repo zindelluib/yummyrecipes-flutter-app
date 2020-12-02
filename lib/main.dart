@@ -4,7 +4,7 @@ import 'loginpage.dart';
 import 'recipespage.dart';
 import 'registrationpage.dart';
 import 'favoritespage.dart';
-import 'models/favoritesmodel.dart';
+import 'models/authmodel.dart';
 import 'package:provider/provider.dart';
 void main() {
   runApp(YummyRecipesApp());
@@ -16,7 +16,7 @@ class YummyRecipesApp extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return ChangeNotifierProvider(
-      create: (context) => FavoritesModel(),
+      create: (context) => AuthModel(),
       child: MaterialApp(
         title: 'Yummy Recipes',
         initialRoute: '/',

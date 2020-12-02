@@ -27,10 +27,17 @@ class RegistrationFormState extends State<RegistrationForm>{
 	bool _isAccepted  = false;
 	final emailExp = new RegExp(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)");
 	final passTxtController  = TextEditingController();
-
+	final fnameTxtController = TextEditingController();
+	final lnameTxtController = TextEditingController();
+	final emailTxtController = TextEditingController();
+	final confirmTxtController = TextEditingController();
 	@override
 	  void dispose() {
 	    passTxtController.dispose();
+		fnameTxtController.dispose();
+		lnameTxtController.dispose();
+		emailTxtController.dispose();
+		confirmTxtController.dispose();
 	    super.dispose();
 	  }
 
@@ -77,7 +84,7 @@ class RegistrationFormState extends State<RegistrationForm>{
 					SizedBox(
 						height: _bottomSpace
 					),
-					TextFormField(
+					/*TextFormField(
 						decoration : txtDecoration('Username'),
 						validator: (value){
 							if (value.isEmpty) {
@@ -88,7 +95,7 @@ class RegistrationFormState extends State<RegistrationForm>{
 					),
 					SizedBox(
 						height: _bottomSpace
-					),
+					),*/
 					TextFormField(
 						decoration : txtDecoration('Email'),
 						validator: (value){

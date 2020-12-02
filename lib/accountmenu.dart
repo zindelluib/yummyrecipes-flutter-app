@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'models/authmodel.dart';
 
 class AccountMenu extends StatelessWidget{
 
@@ -25,6 +27,7 @@ class AccountMenu extends StatelessWidget{
 							IconButton(
 								icon: Icon(Icons.close),
 								onPressed: () {
+									Provider.of<AuthModel>(context,listen:false).logout();	
 									Navigator.pushNamedAndRemoveUntil(context, '/login',(Route<dynamic> route) => false);
 								}
 							),//IconButton

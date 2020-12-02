@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
-
+import 'package:provider/provider.dart';
+import 'models/authmodel.dart';
+import 'services/loginservice.dart';
 class LoginForm extends StatefulWidget{
 	@override
 	LoginFormState createState() => LoginFormState();
@@ -26,18 +27,35 @@ class LoginFormState extends State<LoginForm>{
 	final _formKey  = GlobalKey<FormState>();
 	final emailExp = new RegExp(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)");
 	final passTxtController  = TextEditingController();
-
+	final emailTxtController = TextEditingController();
+	//String errMsg = "";
 	@override
 	  void dispose() {
 	    passTxtController.dispose();
+	    emailTxtController.dispose();
 	    super.dispose();
 	  }
 
-	_login(){
+	_login() async{
 
 		if (_formKey.currentState.validate()) {
-			//No auth			      
-			Navigator.pushNamedAndRemoveUntil(context, '/',(Route<dynamic> route) => false);
+			String email = emailTxtController.text;
+			String password = passTxtController.text;
+
+			var loginRes  = await authenticate(email,password);
+			if(loginRes.errMsg == null){
+				Provider.of<AuthModel>(context,listen:false).login(loginRes.token);			      
+			 	Navigator.pushNamedAndRemoveUntil(context, '/',(Route<dynamic> route) => false);
+			}
+			else{
+				Scaffold.of(context).showSnackBar(SnackBar(content: Text('${loginRes.errMsg}',
+					style: TextStyle(
+							color: Colors.yellow
+					)
+
+				)));
+			}
+			
 		}
 
 	}
@@ -51,10 +69,11 @@ class LoginFormState extends State<LoginForm>{
 						height: 70
 					),
 					TextFormField(
-						decoration : txtDecoration('Username'),
+						controller: emailTxtController,
+						decoration : txtDecoration('Email'),
 						validator: (value){
 							if (value.isEmpty) {
-						      return 'Enter your username';
+						      return 'Enter your Email';
 						    }
 						    return null;
 						}
