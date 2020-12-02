@@ -26,7 +26,9 @@ class RecipeMenu extends StatelessWidget{
 					children:[
 						IconButton(
 							icon: Icon(Icons.create,color:Colors.green),
-							onPressed: () {}
+							onPressed: () {
+								Navigator.pushNamed(context, '/my-recipes');
+							}
 						),//IconButton
 						Text('My Recipes')
 					]
@@ -37,7 +39,7 @@ class RecipeMenu extends StatelessWidget{
 							IconButton(
 								icon: Icon(Icons.search,color:Colors.orange),
 								onPressed: () {
-									Navigator.pushNamed(context, '/recipes');
+									
 								}
 							),//IconButton
 							Text('View All')

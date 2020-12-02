@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'homepage.dart';
 import 'loginpage.dart';
-import 'recipespage.dart';
+import 'myrecipespage.dart';
 import 'registrationpage.dart';
 import 'favoritespage.dart';
+import 'addrecipe.dart';
 import 'models/authmodel.dart';
 import 'package:provider/provider.dart';
 void main() {
@@ -22,10 +23,11 @@ class YummyRecipesApp extends StatelessWidget{
         initialRoute: '/',
         routes:{
           '/' :(context) => HomePage(),
-          '/recipes': (context) => RecipesPage(),
+          '/my-recipes': (context) => MyRecipesPage(),
           '/login' : (context) => LoginPage(),
           '/registration' :(context) => RegistrationPage(),
-          '/favorites':(context) => FavoritesPage()
+          '/favorites':(context) => FavoritesPage(),
+          '/add-recipe': (context) => AddRecipe()
         }
         
       )
