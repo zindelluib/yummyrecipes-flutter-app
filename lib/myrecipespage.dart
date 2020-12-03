@@ -12,6 +12,19 @@ class _MyRecipesPageState extends State<MyRecipesPage>{
 
 		print(index);
 	}
+	_navigateAndDisplaySelection(BuildContext context) async {
+	  final result = await Navigator.pushNamed(context,'/add-recipe');
+
+	  // After the Selection Screen returns a result, hide any previous snackbars
+	  // and show the new result.
+	  print('${result}');
+	  if(result !=null){
+	  	Scaffold.of(context)
+	    ..removeCurrentSnackBar()
+	    ..showSnackBar(SnackBar(content: Text("$result")));
+	  }
+	}
+
 	Widget build(BuildContext context){
 		return Scaffold(
 			appBar: AppBar(
@@ -33,13 +46,17 @@ class _MyRecipesPageState extends State<MyRecipesPage>{
 					);
 				}//itemBuilder
 			),
-			floatingActionButton:FloatingActionButton(
-					onPressed:(){
-						Navigator.pushNamed(context,'/add-recipe');
-					},
-					backgroundColor:Color.fromRGBO(56,142,60,1),
-					child: Icon(Icons.add)
-			)	
+			floatingActionButton: Builder(
+				builder: (context){
+					return FloatingActionButton(
+							onPressed:(){
+								_navigateAndDisplaySelection(context);
+							},
+							backgroundColor:Color.fromRGBO(56,142,60,1),
+							child: Icon(Icons.add)
+					);	
+				}
+			)
 		);//Scaffold
 	}
 }
