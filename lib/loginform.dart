@@ -44,7 +44,7 @@ class LoginFormState extends State<LoginForm>{
 
 			var loginRes  = await authenticate(email,password);
 			if(loginRes.errMsg == null){
-				Provider.of<AuthModel>(context,listen:false).login(loginRes.token);			      
+				Provider.of<AuthModel>(context,listen:false).login(loginRes.user,loginRes.token);			      
 			 	Navigator.pushNamedAndRemoveUntil(context, '/',(Route<dynamic> route) => false);
 			}
 			else{

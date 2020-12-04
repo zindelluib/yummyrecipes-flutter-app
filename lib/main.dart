@@ -7,6 +7,7 @@ import 'favoritespage.dart';
 import 'addrecipe.dart';
 import 'models/authmodel.dart';
 import 'package:provider/provider.dart';
+
 void main() {
   runApp(YummyRecipesApp());
 }

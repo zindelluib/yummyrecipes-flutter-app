@@ -1,1 +1,1 @@
-const API_URL = 'http://192.168.0.11:8000/api';
+const API_URL = 'https://yummyrecipeapp.000webhostapp.com/api';

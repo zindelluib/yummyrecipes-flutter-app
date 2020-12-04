@@ -2,13 +2,14 @@ class LoginResponse{
 
 	final String token;//access_token
 	final String errMsg;//error
-
-	LoginResponse({this.token,this.errMsg});
+	final String user;
+	LoginResponse({this.token,this.errMsg,this.user});
 
 	factory LoginResponse.fromJson(Map<String,dynamic> json){
 		return LoginResponse(
 			token: json['access_token'],
-			errMsg: json['error']
+			errMsg: json['error'],
+			user: json['user']
 		);
 	}
 
