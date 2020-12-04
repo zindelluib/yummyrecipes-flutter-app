@@ -1,0 +1,1 @@
+const API_URL = 'https://yummyrecipeapp.000webhostapp.com/api';

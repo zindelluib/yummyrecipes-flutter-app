@@ -12,7 +12,9 @@ class RecipeMenu extends StatelessWidget{
 						children:[
 							IconButton(
 								icon: Icon(Icons.favorite,color: Colors.red),
-								onPressed: () {}
+								onPressed: () {
+									Navigator.pushNamed(context,'/favorites');
+								}
 							),//IconButton
 							Text('Favorites')
 						]
@@ -24,7 +26,9 @@ class RecipeMenu extends StatelessWidget{
 					children:[
 						IconButton(
 							icon: Icon(Icons.create,color:Colors.green),
-							onPressed: () {}
+							onPressed: () {
+								Navigator.pushNamed(context, '/my-recipes');
+							}
 						),//IconButton
 						Text('My Recipes')
 					]
@@ -34,7 +38,9 @@ class RecipeMenu extends StatelessWidget{
 						children:[
 							IconButton(
 								icon: Icon(Icons.search,color:Colors.orange),
-								onPressed: () {}
+								onPressed: () {
+									
+								}
 							),//IconButton
 							Text('View All')
 						]
